@@ -26,6 +26,7 @@ Implementation from scratch of Machine Learning algorithms using Numpy
    1) `MNIST.ipynb`: Neural Network and Convolutional Neural Network on MNIST dataset
    2) `CNN-Overfiting.ipynb`: Testing different CNN architectures on CIFAR10 dataset - Overfiting analisys
    3) `Autoencoder.ipynb`: Autoencoder on Dogs Dataset
+   4) `YOLO-cats.ipynb`: Cat detection using YOLO model
    
 <br />
 
