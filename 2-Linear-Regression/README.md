@@ -7,7 +7,7 @@ Linear regression is a statistical method used for modeling the relationship bet
 
 <div align="center">
   <img src="https://miro.medium.com/v2/resize:fit:1400/1*-y7VmmWRh2SpqHqxLYHSBA.png" alt="Image description" width="700">
-  <p>Linear Regression Example</p>
+  <p>2D Linear Regression Visialisation</p>
 </div>
 
 
