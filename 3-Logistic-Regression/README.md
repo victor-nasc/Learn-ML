@@ -2,10 +2,12 @@
 
 #### Author: Victor Nascimento Ribeiro - January 2024
 
-Linear regression is a statistical method used for modeling the relationship between a dependent variable (output) and one or more independent variables (inputs) by fitting a linear equation to observed data. The goal is to find the best-fitting line (or hyperplane in multiple dimensions) that minimizes the sum of squared differences between the predicted and actual values (MSE), allowing for prediction and understanding of the linear relationship between variables.
+Linear regression is a statistical method used for modeling the relationship between a dependent variable (output) and one or more independent variables (inputs) by fitting a linear equation to observed data. The goal is to find the best-fitting line (or hyperplane in multiple dimensions) that minimizes the sum of squared differences between the predicted and actual values, a **Loss Function** (in this case MSE), allowing for prediction and understanding of the linear relationship between variables.
 
-
-
+<div align="center">
+  <img src="https://miro.medium.com/v2/resize:fit:1400/1*-y7VmmWRh2SpqHqxLYHSBA.png" alt="Image description" width="700">
+  <p>2D Linear Regression Visualization</p>
+</div>
 
 
 ## Formulation
