@@ -3,13 +3,6 @@ import numpy as np
 # Victor Nascimento Ribeiro
 # 01/2024
 
-
-def mean_squared_error(y_true, y_pred):
-    N = len(y_true)
-    mse = np.sum((y_true - y_pred) ** 2) / N
-    return mse
-
-
 class linear_regression:
 
     def __init__(self):
@@ -52,7 +45,7 @@ class linear_regression:
             self.w -= lr * grad_w
             
             # store loss history
-            loss = mean_squared_error(y, y_pred)
+            loss = self._mean_squared_error(y, y_pred)
             self.loss_history.append(loss)
             
             
@@ -72,9 +65,16 @@ class linear_regression:
         y_pred = self.predict(X)
         
         # Calculate MSE
-        mse = mean_squared_error(y, y_pred)
+        mse = self._mean_squared_error(y, y_pred)
         
         # Calculate R2
         r2 = 1 - mse / np.var(y)
         
         return r2, mse
+
+    
+    # Mean Squared Error function
+    def _mean_squared_error(self, y_true, y_pred):
+        N = len(y_true)
+        mse = np.sum((y_true - y_pred) ** 2) / N
+        return mse
