@@ -5,7 +5,7 @@
 
 ## 1. Introduction 
 
-This repository aims to introduce readers to basic notions and fundamental concepts in the field of study on Machine Learning, along with some code implementations. For a good understanding, it is essential to be familiar with concepts of Differential Calculus and Linear Algebra. No prior knowledge of Machine Learning is required :)
+This repository aims to introduce readers to basic notions and fundamental concepts in the field of study on Machine Learning, along with some code implementations. For a good understanding, it is essential to be familiar with concepts of Differential Calculus, Linear Algebra and Statistics. No prior knowledge of Machine Learning is required :)
 
 We will cover **Supervised Machine Learning**, mathematically formulate this type of problem, explain how training is done and delve into some algorithms.
 
@@ -24,7 +24,7 @@ Let's start with a question: How does the human being learn? This may be a somew
 
 Let's see another example. Imagine you're a doctor and want to decide if a patient $j$ is ill. To do this, you ask them to fill out a list of symptoms, indicating the intensity of each. Let's formulate this problem mathematically. Consider $\mathcal{X}$ as the input hypothesis space, where $X_j = (x_1, x_2, \dots, x_d) \in \mathcal{X}$ represents the list of symptoms of size $d$ filled out by patient $j$. Also, consider $\mathcal{Y}$ as the output space, where $y_j \in \mathcal{Y}$ represents whether the person is ill or not. It can be said that there is a relationship between inputs and outputs, which can be described by a function $f: \mathcal{X} \xrightarrow{} \mathcal{Y}$, called the **Target Function**.
 
-The problem now becomes finding the Target Function $f$. However, most of the time, there is no analytical solution to find it. In such cases, we use Machine Learning. Now, denoting $X = (X_1, X_2, \dots, X_N)$ and $y = (y_1, y_2, \dots, y_N)$ from a set of $N$ observations (patients), we define $\mathcal{D} = {(X_i,y_i) \in \mathcal{X} \times \mathcal{Y}: i = 1,\dots,N }$, which we call **Dataset**. Having a family of functions $\mathcal{H}$, we want to find a function $g: \mathcal{X} \xrightarrow{} \mathcal{Y}$, with $g \in \mathcal{H}$, such that $g(X) \approx f(X)$ for any pair $(X,y) \in \mathcal{X} \times \mathcal{Y}$. In general, the family $\mathcal{H}$ is the family of linear functions, where the real coefficients of the function are denoted by the **weight vector** $w = (w_1, \dots, w_d) \in \mathbb{R}^{d}$, and $b \in \mathcal{R}$ called the **bias**, so $g(X_i) = b + w_1 x_{i1} + \dots + w_d x_{id}$. The learning algorithm will adjust $w$ and $b$ to maximize this approximation.
+The problem now becomes finding the Target Function $f$. However, most of the time, there is no analytical solution to find it. In such cases, we use Machine Learning. Now, denoting $X = (X_1, X_2, \dots, X_N)$ and $y = (y_1, y_2, \dots, y_N)$ from a set of $N$ observations (patients), we define $\mathcal{D} = {(X_i,y_i) \in \mathcal{X} \times \mathcal{Y}: i = 1,\dots,N }$, which we call **Dataset**. Having a family of functions $\mathcal{H}$, we want to find a function $h_w: \mathcal{X} \xrightarrow{} \mathcal{Y}$, with $h_w \in \mathcal{H}$, such that $h_w(X) \approx f(X)$ for any pair $(X,y) \in \mathcal{X} \times \mathcal{Y}$. In general, the family $\mathcal{H}$ is the family of linear functions, where the real coefficients of the function are denoted by the **weight vector** $w = (w_1, \dots, w_d) \in \mathbb{R}^{d}$, and $b \in \mathcal{R}$ called the **bias**, so $h_w(X_i) = b + w_1 x_{i1} + \dots + w_d x_{id}$. The learning algorithm will adjust $w$ and $b$ to maximize this approximation.
 
 <div align="center">
   <img src="https://i.imgur.com/BT3aVap.png" alt="Image description" width="600">
@@ -67,7 +67,7 @@ Now that the problem has been formulated, the next step is to understand how the
 
 ## 3. Training
 
-To measure how far $g$ is from $f$, we need to define a **Loss Function** or cost function $L(w)$. Let's denote $g(X)$ as $\hat{y}$, where $g \in \mathcal{H}$ is a linear function. From a dataset $\mathcal{D}$. Learning occurs through the minimization of the Loss Function; the smaller it is, the closer $g$ is to $f$. To achieve this, let's understand how the **Gradient Descent** algorithm can be used to find the minimum point of this function by adjusting the weights $w$.
+To measure how far $h_w$ is from $f$, we need to define a **Loss Function** or cost function $L(w)$. Let's denote $h_w(X)$ as $\hat{y}$, where $h_w \in \mathcal{H}$ is a linear function. From a dataset $\mathcal{D}$. Learning occurs through the minimization of the Loss Function; the smaller it is, the closer $h_w$ is to $f$. To achieve this, let's understand how the **Gradient Descent** algorithm can be used to find the minimum point of this function by adjusting the weights $w$.
 
 
 
@@ -136,8 +136,8 @@ Now, in **regression** problems, the output corresponds to a continuous numerica
 - Linear Regression
 - Logistic Regression
 - Multinomial Logistic Regression (Softmax)
+- Neural Networks 
 - Deep Learning
-  - Neural Networks (NN)
   - Convolutional Neural Networks (CNN)
   - YOLO - Object Detection
   - Autoencoders
