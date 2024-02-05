@@ -104,17 +104,18 @@ $$ w = X^{\dagger}y$$
 
 Let's calculate MSE's gradient
 
-$$\nabla MSE = \Big{[} \frac{\partial MSE}{\partial w_1}, \frac{\partial MSE}{\partial w_2}, \dots, \frac{\partial MSE}{\partial w_d} \Big{]}$$
+$$\nabla MSE = \Big{[} \frac{\partial MSE}{\partial w_1}, \frac{\partial MSE}{\partial w_2}, \dots, \frac{\partial MSE}{\partial w_d} \Big{]} ^{T}$$
 
 where
 
-$$ \frac{\partial MSE}{\partial w_j} = \frac{\partial}{\partial w_j} \Big{[} \frac{1}{N} \sum_{i = 1}^{N} (\hat{y_i} - y_i)^{2} \Big{]} $$
-
-$$ = \frac{1}{N} \sum_{i = 1}^{N} 2(\hat{y_i} - y_i) \frac{\partial}{\partial w_j} (\hat{y_i} - y_i) $$
-
-$$ = \frac{2}{N} \sum_{i = 1}^{N} (\hat{y_i} - y_i) \frac{\partial}{\partial w_j} ((w_0 + w_1x_{i1} + ... + w_jx_{ij} + ... + w_dx_{id}) - y) $$
-
-$$ = \frac{2}{N} \sum_{i = 1}^{N} (\hat{y_i} - y_i)x_{ij}$$
+$$
+\begin{split}
+  \frac{\partial MSE}{\partial w_j} & = \frac{\partial}{\partial w_j} \Big{[} \frac{1}{N} \sum_{i = 1}^{N} (\hat{y_i} - y_i)^{2} \Big{]}\\
+                                    & = \frac{1}{N} \sum_{i = 1}^{N} 2(\hat{y_i} - y_i) \frac{\partial}{\partial w_j} (\hat{y_i} - y_i) \\
+                                    & = \frac{2}{N} \sum_{i = 1}^{N} (\hat{y_i} - y_i) \frac{\partial}{\partial w_j} \big{(}(w_0 + w_1x_{i1} + ... + w_jx_{ij} + ... + w_dx_{id}) - y\big{)} \\
+                                    & = \frac{2}{N} \sum_{i = 1}^{N} (\hat{y_i} - y_i)x_{ij}
+\end{split}
+$$
 
 Thus
 
