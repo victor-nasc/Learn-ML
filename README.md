@@ -41,11 +41,11 @@ The problem now becomes finding the Target Function $f$. However, most of the ti
 - $N$: Number os samples in the dataset
 - $d$: Number of features in each data instance
 
-$$X = (X_1, X_2, ... , X_N)\quad X_i \in \mathbb{R}^d\quad\text{(Dataset)}$$
+$$X = (X_1, X_2, ... , X_N)^T\quad X_i \in \mathbb{R}^d\quad\text{(Dataset)}$$
 
 $$X_i = (x_{i1}, x_{i2}, ... , x_{id})\quad x_{ij} \in \mathbb{R}\quad\text{(Data instance)}$$
 
-$$w = (w_1, w_2, ... , w_d)\quad w_i \in \mathbb{R}\quad\text{(Weights)}$$
+$$w = (w_1, w_2, ... , w_d)^T\quad w_i \in \mathbb{R}\quad\text{(Weights)}$$
 
 $$\hat{y_i} = b + w_1x_{i1} + \dots + w_dx_{id} \quad\text{(Prediction)}$$
 
@@ -56,7 +56,7 @@ $$y_i \quad\text{(Target)}\quad$$
 #### Artificial component to simplify notatiton:
 $$ X_i = (\mathbf{1}, x_{i1}, x_{i2}, ... , x_{id})\quad(x_{i0} = 1)$$
 
-$$ w = (\mathbf{w_0}, w_1, w_2, ... , w_d)\quad (w_0 \text{ is the bias } b)$$
+$$ w = (\mathbf{w_0}, w_1, w_2, ... , w_d)^T\quad (w_0 \text{ is the bias } b)$$
 
 Thus $\hat{y_i} = w^TX_i $
 
