@@ -43,16 +43,18 @@ The problem now becomes finding the Target Function $f$. However, most of the ti
 
 $$X = (X_1, X_2, ... , X_N)\quad X_i \in \mathbb{R}^d\quad\text{(Dataset)}$$
 
-$$X_i = (x_1, x_2, ... , x_d)\quad x_i \in \mathbb{R}\quad\text{(Data instance)}$$
+$$X_i = (x_{i1}, x_{i2}, ... , x_{id})\quad x_{ij} \in \mathbb{R}\quad\text{(Data instance)}$$
 
 $$w = (w_1, w_2, ... , w_d)\quad w_i \in \mathbb{R}\quad\text{(Weights)}$$
 
-$$\hat{y_i} = w_1X_1 + \dots + w_NX_N + b\quad\text{(Prediction)}$$
+$$\hat{y_i} = b + w_1x_{i1} + \dots + w_dx_{id} \quad\text{(Prediction)}$$
+
+$$x_{ij}\quad\text{(Feature)}$$
 
 $$y_i \quad\text{(Target)}\quad$$
 
 #### Artificial component to simplify notatiton:
-$$ X_i = (\mathbf{1}, x_1, x_2, ... , x_d)\quad(x_0 = 1)$$
+$$ X_i = (\mathbf{1}, x_{i1}, x_{i2}, ... , x_{id})\quad(x_{i0} = 1)$$
 
 $$ w = (\mathbf{w_0}, w_1, w_2, ... , w_d)\quad (w_0 \text{ is the bias } b)$$
 
@@ -78,7 +80,7 @@ To measure how far $h_w$ is from $f$, we need to define a **Loss Function** or c
 
 The gradient vector is a vector normal to the contour of a function at a given point, indicating the direction and sense in which the point should be moved to maximize the function's value. Consequently, the negative of this vector points in the direction and sense of the greatest decrease.
 
-$$\nabla L(w) = \Big{[} \frac{\partial L}{\partial w_1}, \frac{\partial L}{\partial w_2}, \dots, \frac{\partial L}{\partial w_d} \Big{]}$$
+$$\nabla L(w) = \Big{[} \dfrac{\partial L}{\partial w_1}, \dfrac{\partial L}{\partial w_2}, \dots, \dfrac{\partial L}{\partial w_d} \Big{]} ^{T}$$
 
 The main idea of the Gradient Descent algorithm is to choose a vector $w$, initially with arbitrary values, and at each iteration $t$, update it by a small fraction $\eta$ (**learning rate**) in the opposite direction of the gradient of the Loss Function, for a predefined number of iterations called **epochs**. 
 
