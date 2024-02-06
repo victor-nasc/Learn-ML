@@ -32,16 +32,16 @@ known as **Sigmoid Activation Function**
 ## Formulation with $y_i \in \{-1,1\}$
 
 
-Assume our target is: $f(X_i) = P_w(y_i = +1|X_i), \quad i=1,2,\dots,N$
+Assume our target is: $f(X_i) = \hat{P_w}(y_i = +1|X_i), \quad i=1,2,\dots,N$
 
 if $h_w(X_i) \approx f(X_i)$, then
 
-$$ P_w(y_i |X_i) = \begin{cases}
+$$ \hat{P_w}(y_i |X_i) = \begin{cases}
         h_w(X_i) & \text{, if } y_i = +1\\
         1 - h_w(X_i) & \text{, if } y_i = -1
         \end{cases} $$
         
-should be a good estimate of $P_w(y_i |X_i)$
+should be a good estimate of $\hat{P_w}(y_i |X_i)$
 
 note that: 
 
@@ -51,7 +51,7 @@ thus
 
 $$1 − \theta(z) = \theta(−z)$$
 
-then we can write $\   P_w(y |X) = \theta(y w^T X)$
+then we can write $\   \hat{P_w}(y |X) = \theta(y w^T X)$
 
 
 
@@ -63,7 +63,7 @@ Let's find a $w$ that **maximizes** the likelihood of observing the examples.
 
 Assuming examples are $i.i.d.$ (independent and identically distributed), the likelihood function can be written as:
 
-$$\prod_{i = 1}^{N} P_w(y_i |X_i) = \prod_{i = 1}^{N} \theta(y_i w^T X_i)$$
+$$\prod_{i = 1}^{N} \hat{P_w}(y_i |X_i) = \prod_{i = 1}^{N} \theta(y_i w^T X_i)$$
 
 
 
@@ -126,9 +126,9 @@ Note that for $y_i \in \{ 0,1 \}$, we can write
 
 $$
 \begin{split}  
-  P_w(y_i |X_i) 
-  & = P_w(y_i = 1|X_i)^{y_i} P_w(y_i = 0|X_i)^{1−y_i} \\ 
-  & = P_w(y_i = 1|X_i)^{y_i}\big[1 − P_w(y_i = 1|X_i)\big]^{1−y_i} 
+  \hat{P_w}(y_i |X_i) 
+  & = \hat{P_w}(y_i = 1|X_i)^{y_i} \hat{P_w}(y_i = 0|X_i)^{1−y_i} \\ 
+  & = \hat{P_w}(y_i = 1|X_i)^{y_i}\big[1 − \hat{P_w}(y_i = 1|X_i)\big]^{1−y_i} 
 \end{split} 
 $$
 
@@ -146,8 +146,8 @@ Assuming examples are $i.i.d.$ (independent and identically distributed), the li
 
 $$
 \begin{split} 
-  \prod_{i=1}^N P_w(y_i|X_i) & =  
-  \prod_{i=1}^N P_w(y_i = 1|X_i)^{y}\big[1 − P_w(y_i = 1|X_i)\big]^{1−y_i} \\ 
+  \prod_{i=1}^N \hat{P_w}(y_i|X_i) & =  
+  \prod_{i=1}^N \hat{P_w}(y_i = 1|X_i)^{y}\big[1 − \hat{P_w}(y_i = 1|X_i)\big]^{1−y_i} \\ 
   & \approx \prod_{i=1}^N \big(\theta(w^{T}X_i)\big)^{y_i}\big(1-\theta(w^{T}X_i)\big)^{1-y_i}\\ 
   & = \prod_{i=1}^N \hat{y_i}^{y_i} (1 - \hat{y_i})^{1-y_i} 
 \end{split} 
@@ -186,12 +186,12 @@ $$
 \begin{split} 
   \frac{\partial\theta(w^{T}X_i)}{\partial w_j} 
   & = \frac{\partial}{\partial w_j} \Big(\frac{1}{1+e^{-w^{T}X_i}}\Big) \\ 
-  & = \frac{e^{-w^{T}X_i}}{(1 + e^{-w^{T}X_i})^{2}} \cdot x_{ij}\\ 
-  & = \frac{1}{(1 + e^{-w^{T}X_i})} \cdot \frac{e^{-w^{T}X_i}}{(1 + e^{-w^{T}X_i})} \cdot x_{ij}\\ 
-  & = \frac{1}{(1 + e^{-w^{T}X_i})} \cdot \frac{(1 + e^{-w^{T}X_i}) - 1}{(1 + e^{-w^{T}X_i})} \cdot x_{ij}\\ 
-  & = \frac{1}{(1 + e^{-w^{T}X_i})} \cdot \biggl(\frac{1 + e^{-w^{T}X_i}}{(1 + e^{-w^{T}X_i})} - \frac{1} {1+e^{-w^{T}X_i}} \biggl) \cdot x_{ij}\\ 
-  & = \frac{1}{(1 + e^{-w^{T}X_i})} \cdot \biggl(1 - \frac{1} {1+e^{-w^{T}X_i}} \biggl) \cdot x_{ij}\\ 
-  & = \theta(w^{T}X_i) (1 - \theta(w^{T}X_i)) \cdot x_{ij} \\ 
+  & = \frac{e^{-w^{T}X_i}}{(1 + e^{-w^{T}X_i})^{2}}  x_{ij}\\ 
+  & = \frac{1}{(1 + e^{-w^{T}X_i})}  \frac{e^{-w^{T}X_i}}{(1 + e^{-w^{T}X_i})}  x_{ij}\\ 
+  & = \frac{1}{(1 + e^{-w^{T}X_i})}  \frac{(1 + e^{-w^{T}X_i}) - 1}{(1 + e^{-w^{T}X_i})}  x_{ij}\\ 
+  & = \frac{1}{(1 + e^{-w^{T}X_i})}  \biggl(\frac{1 + e^{-w^{T}X_i}}{(1 + e^{-w^{T}X_i})} - \frac{1} {1+e^{-w^{T}X_i}} \biggl)  x_{ij}\\ 
+  & = \frac{1}{(1 + e^{-w^{T}X_i})}  \biggl(1 - \frac{1} {1+e^{-w^{T}X_i}} \biggl)  x_{ij}\\ 
+  & = \theta(w^{T}X_i) (1 - \theta(w^{T}X_i))  x_{ij} \\ 
   & = \hat{y_i} (1 - \hat{y_i}) x_{ij} \\
   &
 \end{split} $$
@@ -213,5 +213,6 @@ $$
   & = -\frac{1}{N} \sum_{i = 1}^{N} \big(y_i -\hat{y_i} \big)x_{ij}
 \end{split}
 $$
+
 
 

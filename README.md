@@ -41,15 +41,30 @@ The problem now becomes finding the Target Function $f$. However, most of the ti
 - $N$: Number os samples in the dataset
 - $d$: Number of features in each data instance
 
-$$X = (X_1, X_2, ... , X_N)^T\quad X_i \in \mathbb{R}^d\quad\text{(Dataset)}$$
-
-$$X_i = (x_{i1}, x_{i2}, ... , x_{id})\quad x_{ij} \in \mathbb{R}\quad\text{(Data instance)}$$
+$$
+X = 
+\begin{bmatrix} 
+\text{---} & X_1 & \text{---} \\
+\text{---} & X_2 & \text{---} \\ 
+& \vdots \\ 
+\text{---} & X_N & \text{---} 
+\end{bmatrix} = 
+\begin{bmatrix} 
+x_{11} & x_{12} & ... & x_{1d} \\
+x_{21} & x_{22} & ... & x_{2d} \\
+\vdots & \vdots & \ddots & \vdots \\ 
+x_{N1} & x_{N2} & ... & x_{Nd} 
+\end{bmatrix}\quad\quad
+\begin{split} 
+  & X \in \mathcal{R}^{N\times d} & \text{(Dataset)} \\
+  & X_i \in \mathcal{R}^d & \text{(Data instance)} \\ 
+  & x_{ij} \in \mathcal{R} & \text{(Feature)}
+\end{split}
+$$
 
 $$w = (w_1, w_2, ... , w_d)^T\quad w_i \in \mathbb{R}\quad\text{(Weights)}$$
 
 $$\hat{y_i} = b + w_1x_{i1} + \dots + w_dx_{id} \quad\text{(Prediction)}$$
-
-$$x_{ij}\quad\text{(Feature)}$$
 
 $$y_i \quad\text{(Target)}\quad$$
 
@@ -58,7 +73,7 @@ $$ X_i = (\mathbf{1}, x_{i1}, x_{i2}, ... , x_{id})\quad(x_{i0} = 1)$$
 
 $$ w = (\mathbf{w_0}, w_1, w_2, ... , w_d)^T\quad (w_0 \text{ is the bias } b)$$
 
-Thus $\hat{y_i} = w^TX_i $
+Thus $\hat{y} = w^T \cdot X, \quad$ where $(\cdot)$ denotes the dot product which will be omitted from now on.
 
 Now that the problem has been formulated, the next step is to understand how the learning algorithm is executed.
 
@@ -132,17 +147,6 @@ Now, in **regression** problems, the output corresponds to a continuous numerica
 
 
 
-## 5. Algorithms in this repository
-
-- Perceptron
-- Linear Regression
-- Logistic Regression
-- Multinomial Logistic Regression (Softmax)
-- Neural Networks 
-- Deep Learning
-  - Convolutional Neural Networks (CNN)
-  - YOLO - Object Detection
-  - Autoencoders
 
 ## References
 
@@ -151,3 +155,4 @@ I.  Abu-Mostafa, Yaser S., Magdon-Ismail, Malik and Lin, Hsuan-Tien. Learning Fr
 II. Learning from Data - Caltech [online course](https://work.caltech.edu/telecourse)
 
 III. M. A. Nielsen. Neural networks and deep learning, 2018 - [online book](http://neuralnetworksanddeeplearning.com/)
+
