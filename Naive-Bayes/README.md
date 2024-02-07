@@ -42,7 +42,7 @@ We want an approach that estimates the K conditionals. Assuming examples are $i.
 
 $$\hat{y_i} = P(y_i = k|X_i) = \frac{P(x_{i1}|y_i = k) P(x_{i2}|y_i = k) \dots P(x_{id}|y_i = k) P(y_i = k)}{P(X_i)}$$
 
-$$k = 1,2,\dots,K \quad i = 1,2,\dots,N$$
+$$k = 1,2,\dots,K$$
 
 Note that $\hat{y_i} \in \mathcal{R}^K$ represents the <ins>probabilities for each class</ins>
 
