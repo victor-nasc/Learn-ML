@@ -82,7 +82,7 @@ Now that the problem has been formulated, the next step is to understand how the
 
 
 
-## 3. Training
+## 2.3. Training
 
 To measure how far $h_w$ is from $f$, we need to define a **Loss Function** or cost function $L(w)$. Let's denote $h_w(X)$ as $\hat{y}$, where $h_w \in \mathcal{H}$ is a linear function. From a dataset $\mathcal{D}$. Learning occurs through the minimization of the Loss Function; the smaller it is, the closer $h_w$ is to $f$. To achieve this, let's understand how the **Gradient Descent** algorithm can be used to find the minimum point of this function by adjusting the weights $w$.
 
@@ -91,7 +91,7 @@ To measure how far $h_w$ is from $f$, we need to define a **Loss Function** or c
 
 
 
-### 3.1 Gradient Descent
+### 2.3.1 Gradient Descent
 
 The gradient vector is a vector normal to the contour of a function at a given point, indicating the direction and sense in which the point should be moved to maximize the function's value. Consequently, the negative of this vector points in the direction and sense of the greatest decrease.
 
@@ -108,19 +108,19 @@ $$ w(t + 1) = w(t) - \eta \nabla L(w) $$
 </div>
 
 
-#### 3.1.1 Stochastic Gradient Descent (SGD):
+#### 2.3.1.1 Stochastic Gradient Descent (SGD):
 
    - __Overview__: In SGD, instead of using the entire dataset for each iteration, only a single random data point is used to update the model parameters.
    - __Pros__ : Faster updates, especially for large datasets. It can escape local minima due to the stochastic nature.
    - __Cons__: Noisy updates, might oscillate around the minimum. Might take a longer time to converge.
 
-#### 3.1.2 Batch Gradient Descent:
+#### 2.3.1.2 Batch Gradient Descent:
 
    - __Overview__: In Batch GD, the entire dataset is used for each iteration to update the model parameters.
    - __Pros__ : Smooth convergence, less noisy updates. Suitable for smaller datasets.
    - __Cons__: Computationally expensive for large datasets. May take longer to converge.
 
-#### 3.1.3 Mini-Batch Gradient Descent:
+#### 2.3.1.3 Mini-Batch Gradient Descent:
 
    - __Overview__: Mini-Batch GD strikes a balance between SGD and Batch GD by using a small, random subset (mini-batch) of the data for each iteration.
    - __Pros__ : Combines advantages of both SGD and Batch GD. Suitable for a wide range of dataset sizes.
@@ -130,14 +130,14 @@ $$ w(t + 1) = w(t) - \eta \nabla L(w) $$
 
 
 
-## 3.2 Weight Initialization
+## 2.3.2 Weight Initialization
 
 There are several ways to initialize $w$, with the simplest being to start with random values. However, there are more intelligent ways to choose initial values, ensuring that the function converges in fewer iterations. To delve deeper into this topic, read Chapter 3 of [III](http://neuralnetworksanddeeplearning.com/).
 
 
 
 
-## 4. Classification and Regression
+## 2.4. Classification and Regression
 
 In **classification** problems, the output $y$ corresponds to a label of a class, meaning a discrete value representing a category. Let's go back to the doctor's example: based on a patient's symptoms, deciding whether they are ill or not. This is a binary classification problem, where the output has two possible labels: 0 for a healthy patient and 1 for a sick patient. Note that the output doesn't necessarily have to be binary; it can contain an arbitrary number of classes.
 
@@ -146,6 +146,16 @@ Now, in **regression** problems, the output corresponds to a continuous numerica
 
 
 
+## 3. Unsupervised Learning
+
+
+Unsupervised Learning is a type of machine learning where the algorithm learns patterns from **unlabeled data without any explicit guidance or supervision**. In unsupervised learning, the system tries to identify the underlying structure in the data on its own.
+
+There are two main types of unsupervised learning techniques:
+
+**- Clustering**: Clustering algorithms group similar data points together based on certain criteria. The goal is to partition the data into clusters such that data points within the same cluster are more similar to each other than to those in other clusters. Examples of clustering algorithms include k-means, hierarchical clustering, and DBSCAN.
+
+**- Dimensionality reduction**: Dimensionality reduction techniques aim to reduce the number of features in the data while preserving its essential structure. This is often done to simplify the dataset and make it more manageable for analysis. Principal Component Analysis (PCA) and t-distributed Stochastic Neighbor Embedding (t-SNE) are common dimensionality reduction techniques.
 
 
 ## References
